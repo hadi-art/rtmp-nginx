@@ -1,0 +1,15 @@
+version: '2'
+services:
+  nginx-rtmp:
+    image: tiangolo/nginx-rtmp:latest
+    container_name: nginx-rtmp
+    restart: always
+    ports:
+      - "1935:1935"
+    privileged: true
+    
+    # we mount the working dir into the container, handy for development
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+
+
